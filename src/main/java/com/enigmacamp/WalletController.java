@@ -24,8 +24,6 @@ import java.util.UUID;
 public class WalletController {
 	@PostMapping("/wallet-payment")
 	public ResponseEntity<CommonResponse> add(@RequestBody Wallet req) {
-		Wallet wallet = new Wallet("123", "123", "PAYMENT");
-
 		if (req.getCustomerId().equals("123") && req.getTrxId().equals("123") && req.getTrxType().equalsIgnoreCase("payment")) {
 			SuccessResponse res = new SuccessResponse("00", "OK", "Success payment", UUID.randomUUID().toString());
 
