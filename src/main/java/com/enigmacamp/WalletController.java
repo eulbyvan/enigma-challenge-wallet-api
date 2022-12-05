@@ -34,6 +34,6 @@ public class WalletController {
 
 		ErrorResponse res = new ErrorResponse("X01", "FAILED", "Transaction type is unknown");
 
-		return ResponseEntity.status(HttpStatus.OK).body(res);
+		return ResponseEntity.status(HttpStatus.NOT_FOUND).body(res);
 	}
 }
