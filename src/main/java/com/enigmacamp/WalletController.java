@@ -36,10 +36,10 @@ public class WalletController {
 
 		if (!req.getCustomerId().equals("123")) {
 			res.setCode("X01");
-			res.setMsg("Customer ID is unknown");
+			res.setMsg("Customer ID doesn't exist");
 		} else if (!req.getTrxId().equals("123")) {
 			res.setCode("X02");
-			res.setMsg("Transaction ID is unknown");
+			res.setMsg("Transaction ID doesn't exist");
 		} else if (!req.getCustomerId().equals("PAYMENT")) {
 			res.setCode("X03");
 			res.setMsg("Transaction type is unknown");
