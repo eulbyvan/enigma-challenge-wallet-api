@@ -26,7 +26,7 @@ public class WalletController {
 	public ResponseEntity<CommonResponse> add(@RequestBody Wallet req) {
 		Wallet wallet = new Wallet("123", "123", "PAYMENT");
 
-		if (req.getCustomerId().equals("123") || req.getTrxId().equals("123") || req.getTrxType().toLowerCase().equals("payment")) {
+		if (req.getCustomerId().equals("123") && req.getTrxId().equals("123") && req.getTrxType().equalsIgnoreCase("payment")) {
 			SuccessResponse res = new SuccessResponse("00", "OK", "Success payment", UUID.randomUUID().toString());
 
 			return ResponseEntity.status(HttpStatus.OK).body(res);
