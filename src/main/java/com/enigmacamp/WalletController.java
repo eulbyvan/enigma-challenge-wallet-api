@@ -30,7 +30,18 @@ public class WalletController {
 			return ResponseEntity.status(HttpStatus.OK).body(res);
 		}
 
-		ErrorResponse res = new ErrorResponse("X01", "FAILED", "Transaction type is unknown");
+		ErrorResponse res = new ErrorResponse();
+
+		res.setCode("X01");
+		res.setStatus("FAILED");
+
+		if (!req.getCustomerId().equals("123")) {
+			res.setMsg("Customer ID is unknown");
+		} else if (!req.getTrxId().equals("123")) {
+			res.setMsg("Transaction ID is unknown");
+		} else if (!req.getCustomerId().equals("PAYMENT")) {
+			res.setMsg("Transaction type is unknown");
+		}
 
 		return ResponseEntity.status(HttpStatus.NOT_FOUND).body(res);
 	}
