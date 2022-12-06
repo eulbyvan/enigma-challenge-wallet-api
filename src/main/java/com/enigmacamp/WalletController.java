@@ -52,6 +52,6 @@ public class WalletController {
 			res.setMsg("Transaction type is unknown");
 		}
 
-		return ResponseEntity.status(HttpStatus.NOT_FOUND).body(res);
+		return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(res);
 	}
 }
