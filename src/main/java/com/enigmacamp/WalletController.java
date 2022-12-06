@@ -11,7 +11,10 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.List;
+import java.util.Optional;
 import java.util.UUID;
+import java.util.stream.Collectors;
 
 /**
  * @author stu (https://www.eulbyvan.com/)
@@ -24,8 +27,12 @@ import java.util.UUID;
 public class WalletController {
 	@PostMapping("/wallet-payment")
 	public ResponseEntity<CommonResponse> add(@RequestBody Wallet req) {
+		String s = UUID.randomUUID().toString();
+
+		List<String> data = List.of(s);
+
 		if (req.getCustomerId().equals("123") && req.getTrxId().equals("123") && req.getTrxType().equalsIgnoreCase("payment")) {
-			SuccessResponse res = new SuccessResponse("00", "OK", "Success payment", UUID.randomUUID().toString());
+			SuccessResponse res = new SuccessResponse("00", "OK", "Success payment", data);
 
 			return ResponseEntity.status(HttpStatus.OK).body(res);
 		}
